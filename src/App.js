@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import RandomButton from "./RandomButton";
 import LoadingIcon from "./LoadingIcon";
+import NameList from "./NameList";
+import Title from "./Title";
 import math from "mathjs";
 
 class App extends Component {
@@ -16,18 +18,15 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1 id="app-title">hello random name picker</h1>
+        <Title />
         {this.state.isLoading ? (
           <LoadingIcon />
         ) : (
-          <ul>
-            {this.state.names.map((name, i) => {
-              const isWinner = this.state.luckyWinnerIndex === i;
-              return <li id={isWinner ? "winner" : ""}>{name}</li>;
-            })}
-          </ul>
+          <NameList
+            names={this.state.names}
+            luckyWinnerIndex={this.state.luckyWinnerIndex}
+          />
         )}
-
         <RandomButton handleClick={() => this.handleClick()} />
       </div>
     );
@@ -35,21 +34,15 @@ class App extends Component {
 
   handleClick() {
     this.setState({ isLoading: true });
-    setTimeout(() => {
-      const numberOfNames = this.state.names.length;
-      const randomInteger = math.randomInt(numberOfNames);
-      this.setState({
-        luckyWinnerIndex: randomInteger,
-        isLoading: false
-      });
-    }, 500);
+    // setTimeout(() => {  // uncomment the 2 commented lines to see the loading effect
+    const numberOfNames = this.state.names.length;
+    const randomInteger = math.randomInt(numberOfNames);
+    this.setState({
+      luckyWinnerIndex: randomInteger,
+      isLoading: false
+    });
+    // }, 500);
   }
 }
 
 export default App;
-/* alternative solution: */
-// if (this.state.luckyWinnerIndex === i) {
-//   return <li id="winner">{name}</li>;
-// } else {
-//   return <li id="">{name}</li>;
-// }

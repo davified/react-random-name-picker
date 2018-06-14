@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
         <h1 id="app-title">hello random name picker</h1>
-      
+
         <h3>{this.state.names[this.state.luckyWinnerIndex]}</h3>
 
         <button onClick={() => this.handleClick()}>get lucky winner!</button>
