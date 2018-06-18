@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import InputForm from "./InputForm";
+import NameList from "./NameList";
 import math from "mathjs";
 
 class RandomNamePicker extends Component {
@@ -14,16 +15,12 @@ class RandomNamePicker extends Component {
   render() {
     return (
       <div>
-        {this.state.names.map((name, index) => {
-          const isLuckyWinner = index === this.state.luckyWinnerIndex;
-          return (
-            <li id={isLuckyWinner ? "winner" : ""} key={index}>
-              {name}
-            </li>
-          );
-        })}
+        <NameList
+          names={this.state.names}
+          luckyWinnerIndex={this.state.luckyWinnerIndex}
+        />
         <button onClick={() => this.handleClick()}>get lucky winner!</button>
-        <InputForm addNewName={newName => this.addNewName(newName)} />
+        <InputForm addName={name => this.addName(name)} />
       </div>
     );
   }
@@ -34,9 +31,9 @@ class RandomNamePicker extends Component {
     this.setState({ luckyWinnerIndex: randomInteger });
   }
 
-  addNewName(newName) {
+  addName(name) {
     this.setState({
-      names: [...this.state.names, newName]
+      names: [...this.state.names, name]
     });
   }
 }
