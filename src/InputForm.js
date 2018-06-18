@@ -28,7 +28,9 @@ class InputForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.addNewName(this.state.inputValue);
+    const newName = this.state.inputValue;
+
+    this.props.addName(newName);
 
     this.setState({
       inputValue: ""
