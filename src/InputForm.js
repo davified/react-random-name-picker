@@ -9,33 +9,33 @@ class InputForm extends Component {
   }
   render() {
     return (
-      <form onSubmit={event => this.handleSubmit(event)}>
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           value={this.state.inputValue}
-          onChange={event => this.handleChange(event)}
+          onChange={this.handleChange}
         />
         <button>Add name</button>
       </form>
     );
   }
 
-  handleChange(event) {
+  handleChange = event => {
     this.setState({
       inputValue: event.target.value
     });
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
-    const newName = this.state.inputValue;
 
+    const newName = this.state.inputValue;
     this.props.addName(newName);
 
     this.setState({
       inputValue: ""
     });
-  }
+  };
 }
 
 export default InputForm;
