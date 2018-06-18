@@ -19,23 +19,23 @@ class RandomNamePicker extends Component {
           names={this.state.names}
           luckyWinnerIndex={this.state.luckyWinnerIndex}
         />
-        <button onClick={() => this.handleClick()}>get lucky winner!</button>
-        <InputForm addName={name => this.addName(name)} />
+        <button onClick={this.setLuckyWinner}>get lucky winner!</button>
+        <InputForm addName={this.addName} />
       </div>
     );
   }
 
-  handleClick() {
+  setLuckyWinner = () => {
     const numberOfNames = this.state.names.length;
     const randomInteger = math.randomInt(numberOfNames);
     this.setState({ luckyWinnerIndex: randomInteger });
-  }
+  };
 
-  addName(name) {
+  addName = name => {
     this.setState({
       names: [...this.state.names, name]
     });
-  }
+  };
 }
 
 export default RandomNamePicker;
