@@ -5,7 +5,11 @@ const NameList = props => (
     <ul>
       {props.names.map((name, i) => {
         const isWinner = props.luckyWinnerIndex === i;
-        return <li id={isWinner ? "winner" : ""}>{name}</li>;
+        return (
+          <li key={i} id={isWinner ? "winner" : ""}>
+            {name}
+          </li>
+        );
 
         /* alternative solution: */
         // if (props.luckyWinnerIndex === i) {
