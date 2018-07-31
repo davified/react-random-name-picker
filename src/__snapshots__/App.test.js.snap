@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test for initial render of App 1`] = `
+<div>
+  <Title />
+  <NameList
+    luckyWinnerIndex={null}
+    names={Array []}
+  />
+  <RandomButton
+    handleClick={[Function]}
+  />
+</div>
+`;

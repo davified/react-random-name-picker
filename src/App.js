@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      names: ["gordon", "sahil", "david", "sally", "jane", "alice"],
+      names: [],
       luckyWinnerIndex: null,
       isLoading: false
     };
@@ -32,16 +32,32 @@ class App extends Component {
     );
   }
 
+  fetchNames = async () => {
+    const response = await fetch(
+      "http://jumpstart-blogging-api.herokuapp.com/users"
+    );
+    const data = await response.json();
+
+    const names = data.map(person => person.username);
+    this.setState({
+      names: names
+    });
+  };
+
+  async componentDidMount() {
+    await this.fetchNames();
+  }
+
   handleClick() {
     this.setState({ isLoading: true });
-    // setTimeout(() => {  // uncomment the 2 commented lines to see the loading effect
+    // console.log(math.randomInt);
+
     const numberOfNames = this.state.names.length;
     const randomInteger = math.randomInt(numberOfNames);
     this.setState({
       luckyWinnerIndex: randomInteger,
       isLoading: false
     });
-    // }, 500);
   }
 }
 

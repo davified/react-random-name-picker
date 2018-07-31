@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should call clickHandler when onClick prop is invoked 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    get lucky winner!
+  </button>
+</div>
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test for LoadingIcon 1`] = `
+<div>
+  <img
+    alt=""
+    src="loading.svg"
+  />
+</div>
+`;

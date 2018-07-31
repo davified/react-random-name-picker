@@ -10,13 +10,6 @@ const NameList = props => (
             {name}
           </li>
         );
-
-        /* alternative solution: */
-        // if (props.luckyWinnerIndex === i) {
-        //   return <li id="winner">{name}</li>;
-        // } else {
-        //   return <li id="">{name}</li>;
-        // }
       })}
     </ul>
   </div>
