@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import RandomButton from "./RandomButton";
-import LoadingIcon from "./LoadingIcon";
-import NameList from "./NameList";
-import Title from "./Title";
+import RandomButton from "../RandomButton/RandomButton";
+import LoadingIcon from "../LoadingIcon/LoadingIcon";
+import NameList from "../NameList/NameList";
+import Title from "../Title/Title";
 import math from "mathjs";
 
 class App extends Component {
