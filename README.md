@@ -1,31 +1,3 @@
-- how to test event handlers / how to simulate onClick()
-- how to access app state
-
-Testing strategy (tests should map/cover implementation)
-1. functional components (snapshot testing)
-2. types of assertions 
-  - 2.1 render-based
-  - 2.2 state-based (if your function/method only calls setState, do this)
-3. Testing events
-  - 3.1 call methods directly
-    - TestRenderer - find node, get its props, and call method
-  - 3.2 Simulating events (hard to do with React utilities. use enzyme)
-    
-4. Mocking
-```js
-// SomeComponent.test.js
-import { randomInt } from "mathjs";
-
-jest.mock("mathjs", () => {
-  return {
-    randomInt: jest.fn() // the only way to inject a mock is by inlining it here.
-  };
-});
-
-```
-- inform them about outdated jest version in CRA
-
-
 # React Random Name Picker
 
 ### Getting started
@@ -75,3 +47,31 @@ prerequisite knowledge:
 - CSS
 - event listeners and handlers
 - passing handlers as props
+
+### Unit Testing
+
+Tests should verify that the implementation is done as according to our expectations. For example, if a function calls setState, we should verify that the component's state has changed.
+
+Testing strategies
+1. functional components (snapshot testing)
+2. types of assertions 
+  - 2.1 render-based
+  - 2.2 state-based (if your function/method only calls setState, do this)
+3. Testing events
+  - 3.1 call methods directly
+    - TestRenderer - find node, get its props, and call method
+  - 3.2 Simulating events (hard to do with React utilities. use enzyme)
+    
+4. Mocking
+```js
+// SomeComponent.test.js
+import { randomInt } from "mathjs";
+
+jest.mock("mathjs", () => {
+  return {
+    randomInt: jest.fn() // the only way to inject a mock is by inlining it here.
+  };
+});
+
+```
+- inform them about outdated jest version in CRA
