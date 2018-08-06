@@ -42,7 +42,7 @@ jobs:
           when: on_fail
       - run:
           name: cat logs
-          command: 
+          command: cat netlifyctl-debug.log
           
 
 workflows:
