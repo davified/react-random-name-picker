@@ -38,12 +38,12 @@ jobs:
           command: wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
       - run:
           name: Deploy build artifact to netlify
-          command: ./netlifyctl -b build -A $NETLIFY_ACCESS_TOKEN deploy -y
+          command: ./netlifyctl -b ./build -A $NETLIFY_ACCESS_TOKEN deploy -y -n react-random-name-staging
           
 
 workflows:
   version: 2
-  test-and-deploy:
+  test-build-and-deploy:
     jobs:
       - test-and-build
       - deploy:
