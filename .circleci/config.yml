@@ -39,6 +39,9 @@ jobs:
       - run:
           name: Deploy build artifact to netlify
           command: ./netlifyctl deploy -b ./build -A $NETLIFY_ACCESS_TOKEN -y -n react-random-name-staging
+      - run:
+          name: cat logs
+          command: cat netlifyctl-debug.log
           
 
 workflows:
