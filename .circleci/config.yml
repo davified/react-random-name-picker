@@ -38,7 +38,11 @@ jobs:
           command: wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
       - run:
           name: Deploy build artifact to netlify
-          command: ./netlifyctl deploy -b ./build -A $NETLIFY_ACCESS_TOKEN -y -n react-random-name-staging && cat netlifyctl-debug.log
+          command: ./netlifyctl deploy -b ./build -A $NETLIFY_ACCESS_TOKEN -y -n react-random-name-staging
+          when: on_fail
+      - run:
+          name: cat logs
+          command: 
           
 
 workflows:
